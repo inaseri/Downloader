@@ -484,29 +484,39 @@ class SavedFileViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func DownloadFile(_ sender: Any) {
-        let alert = UIAlertController(title: "دانلود موسیقی", message: "لینک و اسم فایل مورد نظر برای ذخیره را وارد کنید", preferredStyle: .alert)
-        //2. Add the text field. You can configure it however you need.
-        alert.addTextField(configurationHandler: { (linkForDwonload) in
-            linkForDwonload.text = ""
-            linkForDwonload.placeholder = "لینک دانلود"
-        })
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "دانلود", style: .default, handler: { [weak alert] (_) in
-            guard let link = alert?.textFields![0] else  { return }
-            if link.text != "" && link.text?.suffix(4) == ".mp3" {
-                linkForDownloadGlobal = link.text
-                arrayForDownload.append(linkForDownloadGlobal)
-                var vc: UIViewController = UIViewController()
-                vc = self.storyboard?.instantiateViewController(withIdentifier: "Downloading List") as! InDownloadViewController
-                self.navigationController?.pushViewController(vc, animated: true)
-            } else {
-                let alert = UIAlertController(title: "خطا", message: "لینک دانلود خود را بررسی کنید", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "تایید", style: UIAlertAction.Style.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-            
+        let alert = UIAlertController(title: "دانلود", message: "انتخاب کنید", preferredStyle: UIAlertController.Style.actionSheet)
+        alert.addAction(UIAlertAction(title: "مشاهده لیست دانلود ها", style: UIAlertAction.Style.default, handler: { (action) in
+            var vc: UIViewController = UIViewController()
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "Downloading List") as! InDownloadViewController
+            self.navigationController?.pushViewController(vc, animated: true)
         }))
-        alert.addAction(UIAlertAction(title: "انصراف", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "دانلود فایل جدید", style: UIAlertAction.Style.default, handler: { (action) in
+            let alert = UIAlertController(title: "دانلود موسیقی", message: "لینک و اسم فایل مورد نظر برای ذخیره را وارد کنید", preferredStyle: .alert)
+            //2. Add the text field. You can configure it however you need.
+            alert.addTextField(configurationHandler: { (linkForDwonload) in
+                linkForDwonload.text = ""
+                linkForDwonload.placeholder = "لینک دانلود"
+            })
+            // 3. Grab the value from the text field, and print it when the user clicks OK.
+            alert.addAction(UIAlertAction(title: "دانلود", style: .default, handler: { [weak alert] (_) in
+                guard let link = alert?.textFields![0] else  { return }
+                if link.text != "" && link.text?.suffix(4) == ".mp3" {
+                    linkForDownloadGlobal = link.text
+                    arrayForDownload.append(linkForDownloadGlobal)
+//                    var vc: UIViewController = UIViewController()
+//                    vc = self.storyboard?.instantiateViewController(withIdentifier: "Downloading List") as! InDownloadViewController
+//                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    let alert = UIAlertController(title: "خطا", message: "لینک دانلود خود را بررسی کنید", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "تایید", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+            }))
+            alert.addAction(UIAlertAction(title: "انصراف", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "انصراف", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }

@@ -22,14 +22,15 @@ class InDownloadTableViewCell: UITableViewCell, URLSessionTaskDelegate, URLSessi
     }
     var urlForDownLoad: String!
     var i = 0
-    let ncObserver = NotificationCenter.default
     var progress: Float = 0.0
     var task: URLSession! = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
         creatDowonloadUrl()
-        downloadNow()
+        if arrayForDownload.count > 0 {
+            downloadNow()
+        }
     }
 
     func downloadNow() {
@@ -39,19 +40,21 @@ class InDownloadTableViewCell: UITableViewCell, URLSessionTaskDelegate, URLSessi
         let destination = documentsUrl.appendingPathComponent(audioUrl!.lastPathComponent)
         if FileManager().fileExists(atPath: destination.path) {
             print("file alerdy exist at path")
+            arrayForDownload.remove(at: i - 1)
         } else {
             if let url = URL(string: urlForDownLoad!) {
                 task = urlSession
                 task.downloadTask(with: url).resume()
             }
-            print("file saved to documents")
         }
     }
 
     // This Is Use For Make Url Download Form Array
     func creatDowonloadUrl() {
-        if arrayForDownload.count > 0 {
+        if arrayForDownload.count > i {
             urlForDownLoad = arrayForDownload[i]
+            i = i + 1
+            print("i in creat download url: \(i)\n\n")
         }
     }
 
@@ -74,15 +77,17 @@ class InDownloadTableViewCell: UITableViewCell, URLSessionTaskDelegate, URLSessi
         // your destination file url
         let audioUrl = URL(string: urlForDownLoad)
         let destination = documentsUrl.appendingPathComponent(audioUrl!.lastPathComponent)
+        print("Destination is: \(destination)\n\n\n")
         if FileManager().fileExists(atPath: destination.path) {
             print("file alerdy exist at path")
         } else {
+            print("sss")
             do {
                 try FileManager.default.moveItem(at: location, to: destination)
                 print("file saved to documents")
+                arrayForDownload.remove(at: i - 1)
             } catch {
                 print("file dont save")
-                arrayForDownload.remove(at: i)
             }
         }
     }
