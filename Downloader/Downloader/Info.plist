@@ -53,5 +53,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>این برنامه نیاز دارد</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>این برنامه برای ذخیره سازی ویدیو های دانلود شده نیاز به دسترسی به گالری شما دارد</string>
 </dict>
 </plist>

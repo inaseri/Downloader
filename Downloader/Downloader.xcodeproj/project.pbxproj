@@ -22,6 +22,8 @@
 		0F385930225CF5C400D2A9FC /* ModelManager_Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F38592E225CF5C400D2A9FC /* ModelManager_Downloader.swift */; };
 		0F385934225CF7D600D2A9FC /* PlaylistsSong.db in Resources */ = {isa = PBXBuildFile; fileRef = 0F385933225CF7D600D2A9FC /* PlaylistsSong.db */; };
 		0F63FA592286E6AD0015EF5D /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F63FA582286E6AD0015EF5D /* Struct.swift */; };
+		0F786F222286EB74002F79D2 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F786F212286EB74002F79D2 /* VideoPlayerViewController.swift */; };
+		0F786F242286F098002F79D2 /* VideoPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F786F232286F098002F79D2 /* VideoPlayerTableViewCell.swift */; };
 		0F83FFFB225CD1E0003989B6 /* PlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F83FFFA225CD1E0003989B6 /* PlaylistsViewController.swift */; };
 		0FA4BC402256492A002F9416 /* NowPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4BC3F2256492A002F9416 /* NowPlayViewController.swift */; };
 		0FC7D7A1225CF1F60030280F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7D79B225CF1F50030280F /* FMResultSet.m */; };
@@ -51,6 +53,8 @@
 		0F38592E225CF5C400D2A9FC /* ModelManager_Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager_Downloader.swift; sourceTree = "<group>"; };
 		0F385933225CF7D600D2A9FC /* PlaylistsSong.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PlaylistsSong.db; sourceTree = "<group>"; };
 		0F63FA582286E6AD0015EF5D /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
+		0F786F212286EB74002F79D2 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		0F786F232286F098002F79D2 /* VideoPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		0F83FFFA225CD1E0003989B6 /* PlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaylistsViewController.swift; path = Downloader/ViewControllers/PlaylistsViewController.swift; sourceTree = SOURCE_ROOT; };
 		0FA4BC3F2256492A002F9416 /* NowPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayViewController.swift; sourceTree = "<group>"; };
 		0FC7D795225CF1F40030280F /* Downloader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Downloader-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		0FE734AC2258D96000C067D8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0F786F212286EB74002F79D2 /* VideoPlayerViewController.swift */,
 				0F83FFFA225CD1E0003989B6 /* PlaylistsViewController.swift */,
 				0F009C152257660A00CE3135 /* SavedFileViewController.swift */,
 				0F009C0F2257637700CE3135 /* InDownloadViewController.swift */,
@@ -163,6 +168,7 @@
 		0FE734AD2258D97600C067D8 /* TableVIewCell */ = {
 			isa = PBXGroup;
 			children = (
+				0F786F232286F098002F79D2 /* VideoPlayerTableViewCell.swift */,
 				0FCEDB15225F2EAC003E4793 /* PlaylistNameTableViewCell.swift */,
 				0F009C13225765F300CE3135 /* SavedFileTableViewCell.swift */,
 				0F009C112257639100CE3135 /* InDownloadTableViewCell.swift */,
@@ -332,6 +338,7 @@
 				0FC7D7A4225CF1F60030280F /* FMDatabaseAdditions.m in Sources */,
 				0F2670BB2255338700B1EA57 /* AppDelegate.swift in Sources */,
 				0F63FA592286E6AD0015EF5D /* Struct.swift in Sources */,
+				0F786F242286F098002F79D2 /* VideoPlayerTableViewCell.swift in Sources */,
 				0FC7D7A5225CF1F60030280F /* FMDatabasePool.m in Sources */,
 				0F009C162257660A00CE3135 /* SavedFileViewController.swift in Sources */,
 				0F385930225CF5C400D2A9FC /* ModelManager_Downloader.swift in Sources */,
@@ -340,6 +347,7 @@
 				0F009C102257637700CE3135 /* InDownloadViewController.swift in Sources */,
 				0F009C14225765F300CE3135 /* SavedFileTableViewCell.swift in Sources */,
 				0FC7D7A1225CF1F60030280F /* FMResultSet.m in Sources */,
+				0F786F222286EB74002F79D2 /* VideoPlayerViewController.swift in Sources */,
 				0F009C122257639100CE3135 /* InDownloadTableViewCell.swift in Sources */,
 				0F14665522565EBB000A6CCD /* DownloadingListViewController.swift in Sources */,
 			);

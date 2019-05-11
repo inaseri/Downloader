@@ -503,9 +503,9 @@ class SavedFileViewController: UIViewController, UITableViewDelegate, UITableVie
                 if link.text != "" && link.text?.suffix(4) == ".mp3" {
                     linkForDownloadGlobal = link.text
                     arrayForDownload.append(linkForDownloadGlobal)
-//                    var vc: UIViewController = UIViewController()
-//                    vc = self.storyboard?.instantiateViewController(withIdentifier: "Downloading List") as! InDownloadViewController
-//                    self.navigationController?.pushViewController(vc, animated: true)
+                    var vc: UIViewController = UIViewController()
+                    vc = self.storyboard?.instantiateViewController(withIdentifier: "Downloading List") as! InDownloadViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
                 } else {
                     let alert = UIAlertController(title: "خطا", message: "لینک دانلود خود را بررسی کنید", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "تایید", style: UIAlertAction.Style.default, handler: nil))
