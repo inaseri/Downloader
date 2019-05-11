@@ -21,6 +21,7 @@
 		0F38592F225CF5C400D2A9FC /* DatabaseUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F38592D225CF5C300D2A9FC /* DatabaseUtility.swift */; };
 		0F385930225CF5C400D2A9FC /* ModelManager_Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F38592E225CF5C400D2A9FC /* ModelManager_Downloader.swift */; };
 		0F385934225CF7D600D2A9FC /* PlaylistsSong.db in Resources */ = {isa = PBXBuildFile; fileRef = 0F385933225CF7D600D2A9FC /* PlaylistsSong.db */; };
+		0F63FA592286E6AD0015EF5D /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F63FA582286E6AD0015EF5D /* Struct.swift */; };
 		0F83FFFB225CD1E0003989B6 /* PlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F83FFFA225CD1E0003989B6 /* PlaylistsViewController.swift */; };
 		0FA4BC402256492A002F9416 /* NowPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4BC3F2256492A002F9416 /* NowPlayViewController.swift */; };
 		0FC7D7A1225CF1F60030280F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7D79B225CF1F50030280F /* FMResultSet.m */; };
@@ -28,7 +29,6 @@
 		0FC7D7A3225CF1F60030280F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7D79E225CF1F60030280F /* FMDatabaseQueue.m */; };
 		0FC7D7A4225CF1F60030280F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7D79F225CF1F60030280F /* FMDatabaseAdditions.m */; };
 		0FC7D7A5225CF1F60030280F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7D7A0225CF1F60030280F /* FMDatabasePool.m */; };
-		0FCEDB14225F2755003E4793 /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCEDB13225F2755003E4793 /* Struct.swift */; };
 		0FCEDB16225F2EAC003E4793 /* PlaylistNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCEDB15225F2EAC003E4793 /* PlaylistNameTableViewCell.swift */; };
 		46329F3AA650E10FE81BA9CC /* Pods_Downloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B21A7A610500C13450F63F /* Pods_Downloader.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +50,7 @@
 		0F38592D225CF5C300D2A9FC /* DatabaseUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseUtility.swift; sourceTree = "<group>"; };
 		0F38592E225CF5C400D2A9FC /* ModelManager_Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager_Downloader.swift; sourceTree = "<group>"; };
 		0F385933225CF7D600D2A9FC /* PlaylistsSong.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PlaylistsSong.db; sourceTree = "<group>"; };
+		0F63FA582286E6AD0015EF5D /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
 		0F83FFFA225CD1E0003989B6 /* PlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaylistsViewController.swift; path = Downloader/ViewControllers/PlaylistsViewController.swift; sourceTree = SOURCE_ROOT; };
 		0FA4BC3F2256492A002F9416 /* NowPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayViewController.swift; sourceTree = "<group>"; };
 		0FC7D795225CF1F40030280F /* Downloader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Downloader-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		0FC7D79E225CF1F60030280F /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
 		0FC7D79F225CF1F60030280F /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		0FC7D7A0225CF1F60030280F /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		0FCEDB13225F2755003E4793 /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
 		0FCEDB15225F2EAC003E4793 /* PlaylistNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistNameTableViewCell.swift; sourceTree = "<group>"; };
 		251AC0C56989C85AC56A48AF /* Pods-Downloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.release.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.release.xcconfig"; sourceTree = "<group>"; };
 		7D46E97BE14CB01AB5E7F6E6 /* Pods-Downloader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.debug.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +124,7 @@
 				0F2670BA2255338700B1EA57 /* AppDelegate.swift */,
 				0F38592D225CF5C300D2A9FC /* DatabaseUtility.swift */,
 				0F38592E225CF5C400D2A9FC /* ModelManager_Downloader.swift */,
+				0F63FA582286E6AD0015EF5D /* Struct.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -151,7 +152,6 @@
 			children = (
 				0F83FFFA225CD1E0003989B6 /* PlaylistsViewController.swift */,
 				0F009C152257660A00CE3135 /* SavedFileViewController.swift */,
-				0FCEDB13225F2755003E4793 /* Struct.swift */,
 				0F009C0F2257637700CE3135 /* InDownloadViewController.swift */,
 				0F14665422565EBB000A6CCD /* DownloadingListViewController.swift */,
 				0FA4BC3F2256492A002F9416 /* NowPlayViewController.swift */,
@@ -331,12 +331,12 @@
 				0FCEDB16225F2EAC003E4793 /* PlaylistNameTableViewCell.swift in Sources */,
 				0FC7D7A4225CF1F60030280F /* FMDatabaseAdditions.m in Sources */,
 				0F2670BB2255338700B1EA57 /* AppDelegate.swift in Sources */,
+				0F63FA592286E6AD0015EF5D /* Struct.swift in Sources */,
 				0FC7D7A5225CF1F60030280F /* FMDatabasePool.m in Sources */,
 				0F009C162257660A00CE3135 /* SavedFileViewController.swift in Sources */,
 				0F385930225CF5C400D2A9FC /* ModelManager_Downloader.swift in Sources */,
 				0F38592F225CF5C400D2A9FC /* DatabaseUtility.swift in Sources */,
 				0FA4BC402256492A002F9416 /* NowPlayViewController.swift in Sources */,
-				0FCEDB14225F2755003E4793 /* Struct.swift in Sources */,
 				0F009C102257637700CE3135 /* InDownloadViewController.swift in Sources */,
 				0F009C14225765F300CE3135 /* SavedFileTableViewCell.swift in Sources */,
 				0FC7D7A1225CF1F60030280F /* FMResultSet.m in Sources */,
