@@ -12,7 +12,6 @@ import PhotosUI
 
 class VideoPlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FileManagerDelegate, UIDocumentInteractionControllerDelegate {
     
-
     @IBOutlet weak var videioPlayerTableView: UITableView!
     @IBOutlet weak var downloadVideo: UIBarButtonItem!
     
@@ -84,7 +83,7 @@ class VideoPlayerViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         favorite.backgroundColor = UIColor.blue
-        let delet = UITableViewRowAction(style: .normal, title: "حذف") { action, index in
+        let delete = UITableViewRowAction(style: .normal, title: "حذف") { action, index in
             let alert = UIAlertController(title: "حذف", message: nil, preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "حذف", style: UIAlertAction.Style.destructive, handler: { (action) in
                 let fileName = self.recordings[index.row]
@@ -100,8 +99,28 @@ class VideoPlayerViewController: UIViewController, UITableViewDelegate, UITableV
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        delet.backgroundColor = UIColor.red
-        return [favorite, delet]
+        delete.backgroundColor = UIColor.red
+        
+        let share = UITableViewRowAction(style: .normal, title: "اشتراک گذاری") { (action, index) in
+            let activityController = UIActivityViewController(activityItems: [self.recordings[index.row]], applicationActivities: nil)
+            activityController.completionWithItemsHandler = { (nil, completed, _, error)
+                in
+                if completed {
+                    print("completed")
+                } else {
+                    print("canceled")
+                }
+            }
+            activityController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+            self.present(activityController, animated: true, completion: {
+                print("presented")
+            })
+        }
+        return [favorite, share, delete]
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        videioPlayerTableView.reloadData()
     }
 
     @IBAction func downloadVideo(_ sender: Any) {
@@ -149,7 +168,6 @@ class VideoPlayerViewController: UIViewController, UITableViewDelegate, UITableV
             // 3. Grab the value from the text field, and print it when the user clicks OK.
             alert.addAction(UIAlertAction(title: "دانلود", style: .default, handler: { [weak alert] (_) in
                 guard let link = alert?.textFields![0] else  { return }
-  
                 if link.text != "" && link.text?.suffix(4) == ".mp4" {
                     linkForDownloadGlobal = link.text
                     arrayForDownload.append(linkForDownloadGlobal)
@@ -170,4 +188,5 @@ class VideoPlayerViewController: UIViewController, UITableViewDelegate, UITableV
         alert.addAction(UIAlertAction(title: "انصراف", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
 }
