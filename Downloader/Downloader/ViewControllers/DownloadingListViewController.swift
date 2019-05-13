@@ -9,12 +9,8 @@
 import UIKit
 
 class DownloadingListViewController: UIViewController {
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
- 
-
 }

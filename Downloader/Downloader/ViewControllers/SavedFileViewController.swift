@@ -27,12 +27,6 @@ class SavedFileViewController: UIViewController, UITableViewDelegate, UITableVie
     var artistForBackground: String!
     var artwok: Data!
     var counter = 0
-    var fromPlaylist = false
-    var arrayOfPlaylists = [String]()
-    var arrayOfSelected = [Dowonloader.playlist]()
-    var selected: Int!
-    var playlistName: String!
-    var database: FMDatabase? = FMDatabase(path: DatabaseUtility.getPath("PlaylistsSong.db"))
     
     // Variables For Show Mini Player
     let ncObserver = NotificationCenter.default
@@ -58,6 +52,16 @@ class SavedFileViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // Globale variabeles for check net is connetcted or not
     let monitor = NWPathMonitor()
+    
+    // Globale variabelse for creat playlist
+    var fromPlaylist = false
+    var arrayOfPlaylists = [String]()
+    var arrayOfSelected = [Dowonloader.playlist]()
+    var selected: Int!
+    var playlistName: String!
+    var database: FMDatabase? = FMDatabase(path: DatabaseUtility.getPath("PlaylistsSong.db"))
+    var playlistNameId: Int32!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -202,7 +206,6 @@ class SavedFileViewController: UIViewController, UITableViewDelegate, UITableVie
             let index = indexPath.row
             if selected == index {
                 cell.accessoryType = .checkmark
-                arrayOfSelected.append(Dowonloader.playlist(sort: selected, url: recordings[indexPath.row]))
             } else {
                 cell.accessoryType = .none
             }
@@ -241,6 +244,7 @@ class SavedFileViewController: UIViewController, UITableViewDelegate, UITableVie
             savedFileTableView.reloadData()
         } else {
             selected = indexPath.row
+            arrayOfSelected.append(Dowonloader.playlist(sort: selected, url: recordings[indexPath.row]))
             savedFileTableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
@@ -463,14 +467,41 @@ class SavedFileViewController: UIViewController, UITableViewDelegate, UITableVie
         database?.open()
         print("database opend")
         if (database?.open())! {
+            // This query use for save playlist name in db
+            let result = (database?.executeUpdate("INSERT INTO PlaylistsName (name) VALUES (?)", withArgumentsIn: [playlistName]))!
+            if !result {
+                print("Error in save: \(String(describing: database?.lastErrorMessage()))")
+            } else {
+                print("dont error and playlistname saved")
+            }
+            // This query use for save url of song into db
             for item in arrayOfSelected {
-                let fileName = item.url
+                let url = item.url
                 let sort = item.sort
-                let result = database!.executeUpdate("INSERT INTO PlaylistsSong (playlist_name,audio_url,sort) VALUES (?, ?, ?)", withArgumentsIn: [playlistName,fileName!,sort!])
+                let result = (database?.executeUpdate("INSERT INTO PlaylistsUrl (url,sort) VALUES (?, ?)", withArgumentsIn: [url!,sort!]))!
                 if !result {
                     print("Error in save: \(String(describing: database?.lastErrorMessage()))")
                 } else {
-                    print("dont error")
+                    print("dont error and playlistname saved")
+                }
+            }
+            // This query use for get id form playlistUrls table
+            let query = "SELECT id FROM PlaylistsUrl"
+            var arrayOfIdUrls = [Int32]()
+            let resultSet: FMResultSet! = database?.executeQuery(query, withArgumentsIn: [])
+            if (resultSet != nil) {
+                while resultSet.next() {
+                    let id = resultSet.int(forColumnIndex: 0)
+                    arrayOfIdUrls.append(id)
+                }
+            }
+            // This query use for add both of id in one table that called connection
+            for item2 in arrayOfIdUrls {
+                let result = (database?.executeUpdate("INSERT INTO Connection (playlistsName_id,playlistsUrl_id) VALUES (?, ?)", withArgumentsIn: [playlistNameId,item2]))!
+                if !result {
+                    print("Error in save: \(String(describing: database?.lastErrorMessage()))")
+                } else {
+                    print("dont error and playlistname saved")
                 }
             }
         }

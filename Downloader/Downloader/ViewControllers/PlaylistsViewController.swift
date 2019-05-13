@@ -13,8 +13,10 @@ class PlaylistsViewController: UIViewController,UITableViewDelegate, UITableView
 
     @IBOutlet weak var playlistTabelView: UITableView!
     
-    var arrayOfPlaylists = [Dowonloader.plalistData]()
+    var arrayOfPlaylists = [Dowonloader.PlaylistsName]()
     var database: FMDatabase? = FMDatabase(path: DatabaseUtility.getPath("PlaylistsSong.db"))
+    
+    var playlistNameId: Int32!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,19 +28,17 @@ class PlaylistsViewController: UIViewController,UITableViewDelegate, UITableView
     
     func getPlaylists() {
         database?.open()
-        let query = "SELECT playlist_name,audio_url,sort FROM PlaylistsSong"
-        print(query)
+        let query = "SELECT id,name FROM PlaylistsName"
         let resultSet: FMResultSet! = database?.executeQuery(query, withArgumentsIn: [])
         if (resultSet != nil) {
             while resultSet.next() {
-                let playlistName = resultSet.string(forColumnIndex: 0)
-                let fileName = URL(string: resultSet.string(forColumnIndex: 1)!)
-                let sort = resultSet.int(forColumnIndex: 2)
-                arrayOfPlaylists.append(Dowonloader.plalistData(playlistName: playlistName, fileName: fileName, srot: sort))
+                let id = resultSet.int(forColumnIndex: 0)
+                let name = resultSet.string(forColumnIndex: 1)!
+                arrayOfPlaylists.append(Dowonloader.PlaylistsName(id: id, name: name))
             }
         }
         database?.close()
-        print(arrayOfPlaylists)
+        playlistNameId = arrayOfPlaylists.last?.id
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,8 +47,18 @@ class PlaylistsViewController: UIViewController,UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PlaylistNameTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell 1", for: indexPath) as! PlaylistNameTableViewCell
-        cell.textLabel?.text = arrayOfPlaylists[indexPath.row].playlistName
+        cell.textLabel?.text = arrayOfPlaylists[indexPath.row].name 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Detail Of Playlists" {
+            let showDetail = segue.destination as! PlaylistSongsViewController
+            let indexPath = self.playlistTabelView.indexPathForSelectedRow
+            let selectedCell = arrayOfPlaylists[(indexPath?.row)!]
+            showDetail.title = selectedCell.name
+            showDetail.playlistId = selectedCell.id
+        }
     }
     
     @IBAction func creatPlaylist(_ sender: Any) {
@@ -62,6 +72,7 @@ class PlaylistsViewController: UIViewController,UITableViewDelegate, UITableView
                 let viewControllers = self.storyboard?.instantiateViewController(withIdentifier: "Saved File") as! SavedFileViewController
                 viewControllers.fromPlaylist = true
                 viewControllers.playlistName = playlistName.text
+                viewControllers.playlistNameId = self.playlistNameId
                 self.navigationController?.pushViewController(viewControllers, animated: true)
             }
         }))

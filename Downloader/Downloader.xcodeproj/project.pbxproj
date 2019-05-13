@@ -20,11 +20,13 @@
 		0F2670C82255338800B1EA57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2670C62255338800B1EA57 /* LaunchScreen.storyboard */; };
 		0F38592F225CF5C400D2A9FC /* DatabaseUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F38592D225CF5C300D2A9FC /* DatabaseUtility.swift */; };
 		0F385930225CF5C400D2A9FC /* ModelManager_Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F38592E225CF5C400D2A9FC /* ModelManager_Downloader.swift */; };
-		0F385934225CF7D600D2A9FC /* PlaylistsSong.db in Resources */ = {isa = PBXBuildFile; fileRef = 0F385933225CF7D600D2A9FC /* PlaylistsSong.db */; };
 		0F63FA592286E6AD0015EF5D /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F63FA582286E6AD0015EF5D /* Struct.swift */; };
 		0F786F222286EB74002F79D2 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F786F212286EB74002F79D2 /* VideoPlayerViewController.swift */; };
 		0F786F242286F098002F79D2 /* VideoPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F786F232286F098002F79D2 /* VideoPlayerTableViewCell.swift */; };
 		0F83FFFB225CD1E0003989B6 /* PlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F83FFFA225CD1E0003989B6 /* PlaylistsViewController.swift */; };
+		0FA444882289A55D00D96C8E /* PlaylistsSong.db in Resources */ = {isa = PBXBuildFile; fileRef = 0FA444872289A55D00D96C8E /* PlaylistsSong.db */; };
+		0FA4448A2289B46B00D96C8E /* PlaylistSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA444892289B46B00D96C8E /* PlaylistSongsViewController.swift */; };
+		0FA4448C2289B5AB00D96C8E /* PlaylistSongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4448B2289B5AB00D96C8E /* PlaylistSongsTableViewCell.swift */; };
 		0FA4BC402256492A002F9416 /* NowPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4BC3F2256492A002F9416 /* NowPlayViewController.swift */; };
 		0FC7D7A1225CF1F60030280F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7D79B225CF1F50030280F /* FMResultSet.m */; };
 		0FC7D7A2225CF1F60030280F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7D79C225CF1F50030280F /* FMDatabase.m */; };
@@ -51,11 +53,13 @@
 		0F2670C92255338900B1EA57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F38592D225CF5C300D2A9FC /* DatabaseUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseUtility.swift; sourceTree = "<group>"; };
 		0F38592E225CF5C400D2A9FC /* ModelManager_Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager_Downloader.swift; sourceTree = "<group>"; };
-		0F385933225CF7D600D2A9FC /* PlaylistsSong.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PlaylistsSong.db; sourceTree = "<group>"; };
 		0F63FA582286E6AD0015EF5D /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
 		0F786F212286EB74002F79D2 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		0F786F232286F098002F79D2 /* VideoPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		0F83FFFA225CD1E0003989B6 /* PlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaylistsViewController.swift; path = Downloader/ViewControllers/PlaylistsViewController.swift; sourceTree = SOURCE_ROOT; };
+		0FA444872289A55D00D96C8E /* PlaylistsSong.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PlaylistsSong.db; sourceTree = "<group>"; };
+		0FA444892289B46B00D96C8E /* PlaylistSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSongsViewController.swift; sourceTree = "<group>"; };
+		0FA4448B2289B5AB00D96C8E /* PlaylistSongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSongsTableViewCell.swift; sourceTree = "<group>"; };
 		0FA4BC3F2256492A002F9416 /* NowPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayViewController.swift; sourceTree = "<group>"; };
 		0FC7D795225CF1F40030280F /* Downloader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Downloader-Bridging-Header.h"; sourceTree = "<group>"; };
 		0FC7D796225CF1F50030280F /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
@@ -115,8 +119,8 @@
 				0F385931225CF73300D2A9FC /* Backend */,
 				0F2670C42255338800B1EA57 /* Assets.xcassets */,
 				0F2670C92255338900B1EA57 /* Info.plist */,
+				0FA444872289A55D00D96C8E /* PlaylistsSong.db */,
 				0F2670C12255338700B1EA57 /* Downloader.xcdatamodeld */,
-				0F385933225CF7D600D2A9FC /* PlaylistsSong.db */,
 				0FC7D795225CF1F40030280F /* Downloader-Bridging-Header.h */,
 			);
 			path = Downloader;
@@ -155,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				0F786F212286EB74002F79D2 /* VideoPlayerViewController.swift */,
+				0FA444892289B46B00D96C8E /* PlaylistSongsViewController.swift */,
 				0F83FFFA225CD1E0003989B6 /* PlaylistsViewController.swift */,
 				0F009C152257660A00CE3135 /* SavedFileViewController.swift */,
 				0F009C0F2257637700CE3135 /* InDownloadViewController.swift */,
@@ -168,6 +173,7 @@
 		0FE734AD2258D97600C067D8 /* TableVIewCell */ = {
 			isa = PBXGroup;
 			children = (
+				0FA4448B2289B5AB00D96C8E /* PlaylistSongsTableViewCell.swift */,
 				0F786F232286F098002F79D2 /* VideoPlayerTableViewCell.swift */,
 				0FCEDB15225F2EAC003E4793 /* PlaylistNameTableViewCell.swift */,
 				0F009C13225765F300CE3135 /* SavedFileTableViewCell.swift */,
@@ -268,7 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F385934225CF7D600D2A9FC /* PlaylistsSong.db in Resources */,
+				0FA444882289A55D00D96C8E /* PlaylistsSong.db in Resources */,
 				0F2670C82255338800B1EA57 /* LaunchScreen.storyboard in Resources */,
 				0F2670C52255338800B1EA57 /* Assets.xcassets in Resources */,
 				0F2670C02255338700B1EA57 /* Main.storyboard in Resources */,
@@ -330,6 +336,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F83FFFB225CD1E0003989B6 /* PlaylistsViewController.swift in Sources */,
+				0FA4448C2289B5AB00D96C8E /* PlaylistSongsTableViewCell.swift in Sources */,
+				0FA4448A2289B46B00D96C8E /* PlaylistSongsViewController.swift in Sources */,
 				0F009C182257716D00CE3135 /* OfflinePlayerViewController.swift in Sources */,
 				0F2670C32255338700B1EA57 /* Downloader.xcdatamodeld in Sources */,
 				0FC7D7A2225CF1F60030280F /* FMDatabase.m in Sources */,

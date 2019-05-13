@@ -15,7 +15,7 @@ var topic_IDForDB: Int32?
 class ModelManager_Downloader: NSObject {
     
     var database: FMDatabase? = nil
-    var arrayOfPlaylistData = [Dowonloader.plalistData]()
+    var arrayOfPlaylistData = [Dowonloader.PlaylistsName]()
     
     class func getInstance() -> ModelManager_Downloader {
         if sharedInstance_Downloader.database == nil {
@@ -24,27 +24,27 @@ class ModelManager_Downloader: NSObject {
         return sharedInstance_Downloader
     }
     
-    func getData() -> [Dowonloader.plalistData] {
-        arrayOfPlaylistData.removeAll()
-        getPlaylists()
-        return arrayOfPlaylistData
-    }
+//    func getData() -> [Dowonloader.PlaylistsName] {
+//        arrayOfPlaylistData.removeAll()
+//        getPlaylists()
+//        return arrayOfPlaylistData
+//    }
     
-    private func getPlaylists() {
-        sharedInstance_Downloader.database?.open()
-        let query = "SELECT playlist_name,audio_url,sort FROM PlaylistsSong"
-        let resultSet: FMResultSet! = sharedInstance_Downloader.database?.executeQuery(query, withArgumentsIn: [])
-        if (resultSet != nil) {
-            while resultSet.next() {
-                let playlistName = resultSet.string(forColumnIndex: 0)
-                let fileName = URL(string: resultSet.string(forColumnIndex: 1)!)
-                let sort = resultSet.int(forColumnIndex: 2)
-                arrayOfPlaylistData.append(Dowonloader.plalistData(playlistName: playlistName, fileName: fileName, srot: sort))
-            }
-        }
-        print(arrayOfPlaylistData)
-        sharedInstance_Downloader.database?.close()
-    }
+//    private func getPlaylists() {
+//        sharedInstance_Downloader.database?.open()
+//        let query = "SELECT playlist_name,audio_url,sort FROM PlaylistsSong"
+//        let resultSet: FMResultSet! = sharedInstance_Downloader.database?.executeQuery(query, withArgumentsIn: [])
+//        if (resultSet != nil) {
+//            while resultSet.next() {
+//                let playlistName = resultSet.string(forColumnIndex: 0)
+//                let fileName = URL(string: resultSet.string(forColumnIndex: 1)!)
+//                let sort = resultSet.int(forColumnIndex: 2)
+////                arrayOfPlaylistData.append(Dowonloader.PlaylistsName(playlistName: playlistName, fileName: fileName, srot: sort))
+//            }
+//        }
+//        print(arrayOfPlaylistData)
+//        sharedInstance_Downloader.database?.close()
+//    }
     
 }
 
